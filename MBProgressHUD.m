@@ -905,7 +905,7 @@ static const CGFloat MBDefaultDetailsLabelFontSize = 12.f;
         CGFloat radius = (CGRectGetWidth(self.bounds) / 2.f) - (processPath.lineWidth / 2.f);
 	processPath.lineWidth = radius;
         CGFloat endAngle = (self.progress * 2.f * (float)M_PI) + startAngle;
-        [processPath addArcWithCenter:center radius:radius startAngle:startAngle endAngle:endAngle clockwise:YES];
+        [processPath addArcWithCenter:center radius:radius / 2.f startAngle:startAngle endAngle:endAngle clockwise:YES];
         // Ensure that we don't get color overlapping when _progressTintColor alpha < 1.f.
         CGContextSetBlendMode(context, kCGBlendModeCopy);
         [_progressTintColor set];
