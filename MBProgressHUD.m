@@ -887,62 +887,23 @@ static const CGFloat MBDefaultDetailsLabelFontSize = 12.f;
         [_progressTintColor set];
         [processPath stroke];
     } else {
-    //
-    CGRect rect = self.bounds;
-    
-    CGPoint center = CGPointMake(rect.origin.x + (CGFloat)floor(rect.size.width/2.0), rect.origin.y + (CGFloat)floor(rect.size.height/2.0));
-    CGFloat lineWidth = 2.0;
-    CGFloat radius = (CGFloat)floor(MIN(rect.size.width, rect.size.height)/2.0)-lineWidth;
-    
-    UIBezierPath *borderPath = [UIBezierPath bezierPathWithArcCenter:center radius:radius startAngle:0.0 endAngle:2.0*(CGFloat)M_PI clockwise:NO];
-    
-    [borderPath setLineWidth:lineWidth];
-
-     [_progressTintColor setStroke];
-        [_backgroundTintColor setFill];
-    
-        
-        [borderPath fill];
-    
-    
-     [_progressTintColor set];
-    
-    [borderPath stroke];
-    
-        UIBezierPath *processPath = [UIBezierPath bezierPath];
-        
-        [processPath setLineWidth:radius];
-        
-        CGFloat startAngle = -((CGFloat)M_PI/2.0);
-        CGFloat endAngle = startAngle + 2.0 * (CGFloat)M_PI * self.progress;
-        
-        [processPath addArcWithCenter:center radius:radius/2.0 startAngle:startAngle endAngle:endAngle clockwise:YES];
-        
-        [processPath stroke];
-    //
-        // Draw background
-       /* CGFloat lineWidth = 2.f;
-        CGRect allRect = self.bounds;
-        CGRect circleRect = CGRectInset(allRect, lineWidth/2.f, lineWidth/2.f);
-        CGPoint center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds));
-        [_progressTintColor setStroke];
-        [_backgroundTintColor setFill];
-        CGContextSetLineWidth(context, lineWidth);
-        CGContextStrokeEllipseInRect(context, circleRect);
-        // 90 degrees
-        CGFloat startAngle = - ((float)M_PI / 2.f);
-        // Draw progress
-        UIBezierPath *processPath = [UIBezierPath bezierPath];
-        processPath.lineCapStyle = kCGLineCapButt;
-        processPath.lineWidth = lineWidth * 2.f;
-        CGFloat radius = (CGRectGetWidth(self.bounds) / 2.f) - (processPath.lineWidth / 2.f);
-	processPath.lineWidth = radius;
-        CGFloat endAngle = (self.progress * 2.f * (float)M_PI) + startAngle;
-        [processPath addArcWithCenter:center radius:radius / 2.f startAngle:startAngle endAngle:endAngle clockwise:YES];
-        // Ensure that we don't get color overlapping when _progressTintColor alpha < 1.f.
-        CGContextSetBlendMode(context, kCGBlendModeCopy);
-        [_progressTintColor set];
-        [processPath stroke];*/
+    	CGRect rect = self.bounds;
+    	CGPoint center = CGPointMake(rect.origin.x + (CGFloat)floor(rect.size.width/2.0), rect.origin.y + (CGFloat)floor(rect.size.height/2.0));
+    	CGFloat lineWidth = 2.0;
+   	CGFloat radius = (CGFloat)floor(MIN(rect.size.width, rect.size.height)/2.0)-lineWidth;
+    	UIBezierPath *borderPath = [UIBezierPath bezierPathWithArcCenter:center radius:radius startAngle:0.0 endAngle:2.0*(CGFloat)M_PI clockwise:NO];
+    	[borderPath setLineWidth:lineWidth];
+    	[_progressTintColor setStroke];
+    	[_backgroundTintColor setFill];
+    	[borderPath fill];
+    	[_progressTintColor set];
+    	[borderPath stroke];
+    	UIBezierPath *processPath = [UIBezierPath bezierPath];
+    	[processPath setLineWidth:radius];
+    	CGFloat startAngle = -((CGFloat)M_PI/2.0);
+    	CGFloat endAngle = startAngle + 2.0 * (CGFloat)M_PI * self.progress;    
+    	[processPath addArcWithCenter:center radius:radius/2.0 startAngle:startAngle endAngle:endAngle clockwise:YES];
+    	[processPath stroke];
     }
 }
 
