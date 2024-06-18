@@ -894,7 +894,7 @@ static const CGFloat MBDefaultDetailsLabelFontSize = 12.f;
     	UIBezierPath *borderPath = [UIBezierPath bezierPathWithArcCenter:center radius:radius startAngle:0.0 endAngle:2.0*(CGFloat)M_PI clockwise:NO];
     	[borderPath setLineWidth:lineWidth];
     	[_progressTintColor setStroke];
-    	//[_backgroundTintColor setFill];
+    	[[UIColor clear] setFill];
     	[borderPath fill];
     	[_progressTintColor set];
     	[borderPath stroke];
